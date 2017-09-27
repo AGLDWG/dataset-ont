@@ -1,0 +1,151 @@
+@prefix : <http://governance.data.gov.au/id/datagovau#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://governance.data.gov.au/id/datagovau> .
+
+<http://governance.data.gov.au/id/datagovau> rdf:type owl:Ontology ;
+                                             
+                                             owl:imports <http://reference.data.gov.au/def/datasetOntology#> .
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://governance.data.gov.au/id/datagovau#CSIRO
+
+:CSIRO rdf:type <http://reference.data.gov.au/def/datasetOntology#Organisation> ,
+                owl:NamedIndividual ;
+       
+       rdfs:label "Commonwealth Scientific and Industrial Research Organisation"@en .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#arminhaller
+
+:arminhaller rdf:type owl:NamedIndividual ,
+                      <http://www.w3.org/2006/vcard/ns#Individual> ;
+             
+             rdfs:label "Armin Haller"@en ;
+             
+             <http://www.w3.org/2006/vcard/ns#hasEmail> <mailto:armin.haller@anu.edu.au> .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#commonwealthOfAustralia
+
+:commonwealthOfAustralia rdf:type <http://purl.org/dc/terms/Jurisdiction> ,
+                                  owl:NamedIndividual ;
+                         
+                         rdfs:label "Commonwealth of Australia"@en .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#creativecommons25australia
+
+:creativecommons25australia rdf:type <http://purl.org/dc/terms/LicenseDocument> ,
+                                     owl:NamedIndividual ;
+                            
+                            rdfs:label "Creative Commons Attribution 2.5 Australia"@en .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#datagovau
+
+:datagovau rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/ns/dcat#Catalog> ;
+           
+           rdfs:label "data.gov.au"@en .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#datagovauPublicationEvent
+
+:datagovauPublicationEvent rdf:type <http://reference.data.gov.au/def/datasetOntology#DatasetPublicationEvent> ,
+                                    owl:NamedIndividual ;
+                           
+                           <http://www.w3.org/ns/prov#atTime> "2016-11-16"@en ;
+                           
+                           <http://reference.data.gov.au/def/datasetOntology#isAssociatedWith> :datagovauPublisher .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#datagovauPublisher
+
+:datagovauPublisher rdf:type <http://reference.data.gov.au/def/datasetOntology#Role> ,
+                             owl:NamedIndividual ;
+                    
+                    <http://reference.data.gov.au/def/datasetOntology#roleOf> :CSIRO .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#datagovauturtledistribution
+
+:datagovauturtledistribution rdf:type owl:NamedIndividual ,
+                                      <http://www.w3.org/ns/dcat#Distribution> ;
+                             
+                             <http://purl.org/dc/terms/issued> "2017-04-24"^^xsd:dateTime ;
+                             
+                             <http://purl.org/dc/elements/1.1/format> "ttl"@en ;
+                             
+                             <http://reference.data.gov.au/def/datasetOntology#hasDownloadURL> <http://data.gov.au/dataset/189ab0c0-0dd1-4b2d-9b62-9fda2500383e/resource/dc586d4f-a3a5-4e00-abb4-128277356bed/download/datasetontology.ttl> ;
+                             
+                             <http://www.w3.org/ns/dcat#accessURL> <http://data.gov.au/dataset/data-gov-au-dataset-ontology/resource/dc586d4f-a3a5-4e00-abb4-128277356bed> ;
+                             
+                             <http://reference.data.gov.au/def/datasetOntology#hasLicense> :creativecommons25australia .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#dataset
+
+:dataset rdf:type <http://reference.data.gov.au/def/datasetOntology#Dataset> ,
+                  owl:NamedIndividual ;
+         
+         rdfs:label "data.gov.au Dataset Ontology"@en ;
+         
+         <http://purl.org/dc/terms/issued> "2016-11-16"^^xsd:dateTime ;
+         
+         <http://purl.org/dc/terms/modified> "2017-04-24"^^xsd:dateTime ;
+         
+         <http://www.w3.org/ns/dcat#keyword> "Ontology"@en ;
+         
+         rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
+
+The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
+
+By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
+
+Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
+         
+         <http://www.w3.org/ns/dcat#keyword> "annotation"@en ,
+                                             "metadata"@en ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#hasLandingPage> <http://data.gov.au/dataset/189ab0c0-0dd1-4b2d-9b62-9fda2500383e> ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#hasContact> :arminhaller ;
+         
+         <http://www.agls.gov.au/agls/terms/jurisdiction> :commonwealthOfAustralia ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#hasLicense> :creativecommons25australia ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#inCatalog> :datagovau ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#isChangedBy> :datagovauPublicationEvent ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#hasDistribution> :datagovauturtledistribution ;
+         
+         <http://reference.data.gov.au/def/datasetOntology#hasUpdateFrequency> :infrequently .
+
+
+
+###  http://governance.data.gov.au/id/datagovau#infrequently
+
+:infrequently rdf:type <http://purl.org/dc/terms/Frequency> ,
+                       owl:NamedIndividual .
+
