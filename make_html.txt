@@ -29,7 +29,7 @@ Things to do in order to create an HTML version of the ontology
 * add links to repository documentation
     * add
 			<dl>
-				<dt>Further documentation & examples:</dt>
+				<dt>Further documentation &amp; examples:</dt>
 				<dd><a href="http://github.com/AGLDWG/dataset-ont">This ontology on GitHub</a></dd>
 			</dl>
 	after:
@@ -41,6 +41,6 @@ Things to do in order to create an HTML version of the ontology
 * add ontology image
 	* after ToC, add
         <div id="img">
-            <img src="dataset.png" alt="Image of all Dataset Ont classes" style="width:800px;">
+            <img src="datasetontology.png" alt="Image of all Dataset Ont classes" style="width:800px;">
             <p><em>All of the Dataset Ontology classes and their relationships</em></p>
         </div> 
