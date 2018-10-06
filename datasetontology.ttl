@@ -1,4 +1,4 @@
-@prefix : <http://reference.data.gov.au/def/ont/dataset#> .
+@prefix : <http://linked.data.gov.au/def/dataset#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
@@ -16,11 +16,11 @@
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix w3geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix audata: <http://reference.data.gov.au/def/datasetOntology#> .
-@base <http://reference.data.gov.au/def/ont/dataset> .
+@prefix audata: <http://linked.data.gov.au/def/dataset#> .
+@base <http://linked.data.gov.au/def/dataset> .
 
-<http://reference.data.gov.au/def/ont/dataset> rdf:type owl:Ontology ;
-                                                owl:versionIRI <http://reference.data.gov.au/def/ont/dataset/1.0> ;
+<http://linked.data.gov.au/def/dataset> rdf:type owl:Ontology ;
+                                                owl:versionIRI <http://linked.data.gov.au/def/dataset/1.0> ;
                                                 owl:imports <http://www.opengis.net/ont/geosparql> ,
                                                             <http://www.w3.org/ns/dcat> ,
                                                             <http://www.w3.org/ns/prov-o> ,
@@ -38,11 +38,11 @@
                                                 rdfs:comment """The data.gov.au Dataset Ontology is an OWL ontology designed to describe the characteristics of datasets published on data.gov.au.
 
 The ontology contains elements which describe the publication, update, origin, governance, spatial and temporal coverage and other contextual information about the dataset. The ontology also covers aspects of organisational custodianship and governance.
- 
+
 By using this ontology to describe datasets on data.gov.au publishers increase discoverability and enable the consumption of this information in other applications/systems as Linked Data. It further enables decentralised publishing of catalogs and facilitates federated dataset search across sites, e.g. in datasets that are published by the States.
- 
+
 Other publishers of Linked Data may make assertions about data published using this ontology, e.g. they may publish information about the use of the dataset in other applications."""@en ;
-                                                dct:contributor <nicholas.car@ga.gov.au> ;
+                                                dct:contributor <nicholas.car@csiro.au> ;
                                                 dct:license <https://creativecommons.org/licenses/by/4.0/> .
 
 #################################################################
@@ -496,15 +496,15 @@ dct:valid rdf:type owl:AnnotationProperty ;
           rdfs:range rdfs:Literal .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#publisher
+###  http://linked.data.gov.au/def/dataset#publisher
 :publisher rdf:type owl:AnnotationProperty .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#title
+###  http://linked.data.gov.au/def/dataset#title
 :title rdf:type owl:AnnotationProperty .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#updateDate
+###  http://linked.data.gov.au/def/dataset#updateDate
 :updateDate rdf:type owl:AnnotationProperty .
 
 
@@ -862,7 +862,7 @@ dct:temporal rdf:type owl:ObjectProperty ;
 dct:type rdf:type owl:ObjectProperty .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#agiftFunction
+###  http://linked.data.gov.au/def/dataset#agiftFunction
 :agiftFunction rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf :classifiedAs ;
                rdfs:range :AGIFTFunction ;
@@ -870,7 +870,7 @@ dct:type rdf:type owl:ObjectProperty .
                rdfs:label "AGIFT Theme"^^xsd:string .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#classifiedAs
+###  http://linked.data.gov.au/def/dataset#classifiedAs
 :classifiedAs rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf dcat:theme ;
               rdfs:domain :Dataset ;
@@ -878,27 +878,27 @@ dct:type rdf:type owl:ObjectProperty .
               rdfs:comment "A relation to define the main category of the dataset. A dataset can have multiple themes."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasAgent
+###  http://linked.data.gov.au/def/dataset#hasAgent
 :hasAgent rdf:type owl:ObjectProperty ;
           rdfs:subPropertyOf prov:agent ;
           rdfs:range dct:Agent ;
           rdfs:comment "Defines a relationship for the Agent responsible for a DatasetChangeEvent through an Association that defines the Organisation that the Agent is associated with for that Event."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasContact
+###  http://linked.data.gov.au/def/dataset#hasContact
 :hasContact rdf:type owl:ObjectProperty ;
             owl:equivalentProperty dcat:contactPoint ;
             rdfs:comment "Defines an agent who is the contact for inquiries on a Dataset."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasDataset
+###  http://linked.data.gov.au/def/dataset#hasDataset
 :hasDataset rdf:type owl:ObjectProperty ;
             owl:equivalentProperty dcat:dataset ;
             owl:inverseOf :inCatalog ;
             rdfs:comment "Defines a Dataset to be part of a Catalog."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasDistribution
+###  http://linked.data.gov.au/def/dataset#hasDistribution
 :hasDistribution rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf dcat:distribution ;
                  rdfs:domain :Dataset ;
@@ -906,45 +906,45 @@ dct:type rdf:type owl:ObjectProperty .
                  rdfs:comment "Defines the available distribution(s) for a Dataset."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasDownloadURL
+###  http://linked.data.gov.au/def/dataset#hasDownloadURL
 :hasDownloadURL rdf:type owl:ObjectProperty ;
                 owl:equivalentProperty dcat:downloadURL ;
                 rdfs:comment "Defines the URLs that contains the Distribution of the Dataset in a given format."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasLandingPage
+###  http://linked.data.gov.au/def/dataset#hasLandingPage
 :hasLandingPage rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf dcat:landingPage ;
                 rdfs:range foaf:Document ;
                 rdfs:comment "Defines a relation that associates a Catalog, Dataset or Distribution with its (one) main Web page that can be navigated to in a Web browser to gain access to the dataset, its distributions and/or additional information."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasLevelOfGovernment
+###  http://linked.data.gov.au/def/dataset#hasLevelOfGovernment
 :hasLevelOfGovernment rdf:type owl:ObjectProperty ;
                       rdfs:domain :Organisation ;
                       rdfs:range :LevelOfGovernment ;
                       rdfs:comment "Defines a relation that denotes the Level of Government of an Organisation, typically a Government Agency."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasLicense
+###  http://linked.data.gov.au/def/dataset#hasLicense
 :hasLicense rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf dct:license ;
             rdfs:comment "A relation that associates a Catalog, Dataset or Distribution to its license document under which it is made available."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasLocalGovernmentArea
+###  http://linked.data.gov.au/def/dataset#hasLocalGovernmentArea
 :hasLocalGovernmentArea rdf:type owl:ObjectProperty ;
                         rdfs:domain :Locality ;
                         rdfs:range :LocalGovernmentArea ;
                         rdfs:comment "Defines a relation that denotes the Local Government representing a Locality (a Spatial Thing)."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasMember
+###  http://linked.data.gov.au/def/dataset#hasMember
 :hasMember rdf:type owl:ObjectProperty ;
            owl:inverseOf :isMemberOf .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasSpatialExtent
+###  http://linked.data.gov.au/def/dataset#hasSpatialExtent
 :hasSpatialExtent rdf:type owl:ObjectProperty ;
                   rdfs:domain [ rdf:type owl:Class ;
                                 owl:unionOf ( :Dataset
@@ -955,30 +955,30 @@ dct:type rdf:type owl:ObjectProperty .
                   rdfs:comment "Spatial extent corresponds to the geographic area within which all items in the dataset fall."^^xsd:string .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasTemporalExtent
+###  http://linked.data.gov.au/def/dataset#hasTemporalExtent
 :hasTemporalExtent rdf:type owl:ObjectProperty ;
                    rdfs:domain :Dataset ;
                    rdfs:range :Timelnterval ;
                    rdfs:comment "Temporal extent corresponds to the time interval within which all items in the dataset occur."^^xsd:string .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasUpdateFrequency
+###  http://linked.data.gov.au/def/dataset#hasUpdateFrequency
 :hasUpdateFrequency rdf:type owl:ObjectProperty ;
                     rdfs:comment "Describes the anticipated frequency of updates of a Dataset."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#inCatalog
+###  http://linked.data.gov.au/def/dataset#inCatalog
 :inCatalog rdf:type owl:ObjectProperty .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#inState
+###  http://linked.data.gov.au/def/dataset#inState
 :inState rdf:type owl:ObjectProperty ;
          rdfs:domain :Locality ;
          rdfs:range :StateOrTerritory ;
          rdfs:comment "Defines the State or Territory a Locality is located in."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#isAssociatedWith
+###  http://linked.data.gov.au/def/dataset#isAssociatedWith
 :isAssociatedWith rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf prov:qualifiedAssociation ;
                   owl:inverseOf :participatesIn ;
@@ -987,7 +987,7 @@ dct:type rdf:type owl:ObjectProperty .
                   rdfs:comment "Defines an association between a Dataset Change Event (e.g. Publishing) and an Association that defines the Agent and/or the Organisation responsible for that Change Event."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#isChangedBy
+###  http://linked.data.gov.au/def/dataset#isChangedBy
 :isChangedBy rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf prov:wasInfluencedBy ;
              owl:inverseOf :resultedIn ;
@@ -996,7 +996,7 @@ dct:type rdf:type owl:ObjectProperty .
              rdfs:comment "Defines a relation that relates a Dataset Change Event to a Dataset. Typically, at least, a Publishing Change Event should be defined that describes when a Dataset is published on the Web."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#isDescribedBy
+###  http://linked.data.gov.au/def/dataset#isDescribedBy
 :isDescribedBy rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf foaf:isPrimaryTopicOf ;
                rdfs:domain :Dataset ;
@@ -1004,14 +1004,14 @@ dct:type rdf:type owl:ObjectProperty .
                rdfs:comment "Defines a relation that associates a Thing to a Dataset that describes the Dataset in more detail."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#isMemberOf
+###  http://linked.data.gov.au/def/dataset#isMemberOf
 :isMemberOf rdf:type owl:ObjectProperty ;
             rdfs:domain vcard:Agent ;
             rdfs:range :Organisation ;
             rdfs:comment "Defines a relation that denotes the beloning of an Agent to an Organisation."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#maintenanceArrangement
+###  http://linked.data.gov.au/def/dataset#maintenanceArrangement
 :maintenanceArrangement rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf prov:wasInfluencedBy ;
                         rdfs:domain <http://purl.org/dc/dcmitype/Dataset> ;
@@ -1019,11 +1019,11 @@ dct:type rdf:type owl:ObjectProperty .
                         rdfs:comment "Links to a description of a maintenance activity."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#participatesIn
+###  http://linked.data.gov.au/def/dataset#participatesIn
 :participatesIn rdf:type owl:ObjectProperty .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#playsRole
+###  http://linked.data.gov.au/def/dataset#playsRole
 :playsRole rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf prov:hadRole ;
            owl:inverseOf :roleOf ;
@@ -1032,16 +1032,16 @@ dct:type rdf:type owl:ObjectProperty .
            rdfs:comment "A relation that defines the Role someone plays in a Dataset Change event defined through an Association entity."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#publisher
+###  http://linked.data.gov.au/def/dataset#publisher
 :publisher rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf dct:publisher .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#resultedIn
+###  http://linked.data.gov.au/def/dataset#resultedIn
 :resultedIn rdf:type owl:ObjectProperty .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#roleOf
+###  http://linked.data.gov.au/def/dataset#roleOf
 :roleOf rdf:type owl:ObjectProperty .
 
 
@@ -1154,45 +1154,45 @@ dct:valid rdf:type owl:DatatypeProperty ;
           rdfs:subPropertyOf dct:date .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#dateChangeEvent
+###  http://linked.data.gov.au/def/dataset#dateChangeEvent
 :dateChangeEvent rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf dct:dateAccepted ;
                  rdfs:range xsd:dateTime .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#dateUpdated
+###  http://linked.data.gov.au/def/dataset#dateUpdated
 :dateUpdated rdf:type owl:DatatypeProperty ;
              rdfs:subPropertyOf :dateChangeEvent ;
              rdfs:range xsd:dateTime .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#fileSize
+###  http://linked.data.gov.au/def/dataset#fileSize
 :fileSize rdf:type owl:DatatypeProperty ;
           owl:equivalentProperty dcat:byteSize ;
           rdfs:comment "The size of a distribution in bytes."@en ;
           rdfs:label "File Size"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#hasPurpose
+###  http://linked.data.gov.au/def/dataset#hasPurpose
 :hasPurpose rdf:type owl:DatatypeProperty ;
             rdfs:domain :Dataset ;
             rdfs:range rdfs:Literal ;
             rdfs:comment "The purpose of a Dataset."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#keyword
+###  http://linked.data.gov.au/def/dataset#keyword
 :keyword rdf:type owl:DatatypeProperty ;
          owl:equivalentProperty dcat:keyword ;
          rdfs:comment "A keyword associated with the Dataset."@en ;
          rdfs:label "Keyword"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#title
+###  http://linked.data.gov.au/def/dataset#title
 :title rdf:type owl:DatatypeProperty ;
        rdfs:subPropertyOf dct:title .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#updateDate
+###  http://linked.data.gov.au/def/dataset#updateDate
 :updateDate rdf:type owl:DatatypeProperty ;
             rdfs:subPropertyOf dct:modified .
 
@@ -1322,7 +1322,7 @@ dct:Standard rdf:type owl:Class .
 dct:SubjectScheme rdf:type owl:Class .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#AGIFTFunction
+###  http://linked.data.gov.au/def/dataset#AGIFTFunction
 :AGIFTFunction rdf:type owl:Class ;
                rdfs:subClassOf :Classifier ;
                dc:source agls:FunctionClass ;
@@ -1331,13 +1331,13 @@ dct:SubjectScheme rdf:type owl:Class .
                rdfs:seeAlso <https://data.naa.gov.au/def/agift/export/def/agift.rdf> .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#AssociatedOrganisation
+###  http://linked.data.gov.au/def/dataset#AssociatedOrganisation
 :AssociatedOrganisation rdf:type owl:Class ;
                         rdfs:subClassOf prov:Association ;
                         rdfs:comment "An AssociatedOrganisation is an Organisation that is responsible for an Event that changed a Dataset the Organisation is associated with."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Catalog
+###  http://linked.data.gov.au/def/dataset#Catalog
 :Catalog rdf:type owl:Class ;
          rdfs:subClassOf dcat:Catalog ,
                          prov:Entity ;
@@ -1346,13 +1346,13 @@ dct:SubjectScheme rdf:type owl:Class .
          rdfs:label "Catalog"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Classifier
+###  http://linked.data.gov.au/def/dataset#Classifier
 :Classifier rdf:type owl:Class ;
             rdfs:subClassOf skos:Concept ;
             rdfs:comment "A classifier used for Australian Government Data."@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Dataset
+###  http://linked.data.gov.au/def/dataset#Dataset
 :Dataset rdf:type owl:Class ;
          rdfs:subClassOf dcat:Dataset ,
                          prov:Entity ,
@@ -1376,21 +1376,21 @@ dct:SubjectScheme rdf:type owl:Class .
          rdfs:label "Dataset"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#DatasetChangeEvent
+###  http://linked.data.gov.au/def/dataset#DatasetChangeEvent
 :DatasetChangeEvent rdf:type owl:Class ;
                     rdfs:subClassOf prov:Activity ;
                     rdfs:comment "A Dataset Change Event is a description of an event that happens at a given point in time and that results in any type of change to the Dataset."@en ;
                     rdfs:label "Dataset Change Event"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#DatasetPublicationEvent
+###  http://linked.data.gov.au/def/dataset#DatasetPublicationEvent
 :DatasetPublicationEvent rdf:type owl:Class ;
                          rdfs:subClassOf :DatasetChangeEvent ;
                          rdfs:comment "A Dataset Publication Event is a description of an event that happens at a given point in time and that results in the publication of a Dataset on data.gov.au."@en ;
                          rdfs:label "Dataset Publication Event"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Distribution
+###  http://linked.data.gov.au/def/dataset#Distribution
 :Distribution rdf:type owl:Class ;
               rdfs:subClassOf dcat:Distribution ,
                               prov:Entity ;
@@ -1398,41 +1398,41 @@ dct:SubjectScheme rdf:type owl:Class .
               rdfs:label "Distribution"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Document
+###  http://linked.data.gov.au/def/dataset#Document
 :Document rdf:type owl:Class ;
           owl:equivalentClass foaf:Document ;
           rdfs:subClassOf prov:Entity ;
           rdfs:label "Document"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Federal
+###  http://linked.data.gov.au/def/dataset#Federal
 :Federal rdf:type owl:Class ;
          rdfs:subClassOf :LevelOfGovernment ;
          rdfs:comment "Federal Government denotes the federal democratic administrative authority of the Commonwealth of Australia."@en ;
          rdfs:label "Federal Government"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#FieldOfResearch
+###  http://linked.data.gov.au/def/dataset#FieldOfResearch
 :FieldOfResearch rdf:type owl:Class ;
                  rdfs:subClassOf :Classifier ;
                  rdfs:comment "The Field of Research defined by the Australian and New Zealand Standard Research Classification (ANZSRC) that best describes the type of methods applied to obtain the data contained within a Dataset."@en ;
                  rdfs:label "Field of Research"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#GazettedLocality
+###  http://linked.data.gov.au/def/dataset#GazettedLocality
 :GazettedLocality rdf:type owl:Class ;
                   rdfs:subClassOf :Locality ;
                   rdfs:comment "Locality with a name authorised by a government agency"^^xsd:string ;
                   rdfs:label "Spatial Gazetteer"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Geometry
+###  http://linked.data.gov.au/def/dataset#Geometry
 :Geometry rdf:type owl:Class ;
           rdfs:subClassOf :SpatialThing ,
                           geo:Geometry .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#GovernmentAgency
+###  http://linked.data.gov.au/def/dataset#GovernmentAgency
 :GovernmentAgency rdf:type owl:Class ;
                   rdfs:subClassOf :Organisation ;
                   rdfs:comment "A Government Agency is a kind of Organisation in the Commonwealth of Australia that is a distinct and recognisable body which has responsibility for carrying out administrative functions."@en ;
@@ -1440,13 +1440,13 @@ dct:SubjectScheme rdf:type owl:Class .
                   rdfs:seeAlso <http://recordsearch.naa.gov.au/manual/Provenance/AgencyDefinition.htm#DEFINITION> .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#LevelOfGovernment
+###  http://linked.data.gov.au/def/dataset#LevelOfGovernment
 :LevelOfGovernment rdf:type owl:Class ;
                    rdfs:comment "Level of Government is a description that is used to describe the Jurisidiction of an Organisation."@en ;
                    rdfs:label "Level of Government"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#LocalGovernmentArea
+###  http://linked.data.gov.au/def/dataset#LocalGovernmentArea
 :LocalGovernmentArea rdf:type owl:Class ;
                      rdfs:subClassOf :LevelOfGovernment ,
                                      [ rdf:type owl:Restriction ;
@@ -1457,13 +1457,13 @@ dct:SubjectScheme rdf:type owl:Class .
                      rdfs:label "Local Government"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Locality
+###  http://linked.data.gov.au/def/dataset#Locality
 :Locality rdf:type owl:Class ;
           rdfs:subClassOf :SpatialThing ;
           rdfs:comment "Locality is a Spatial Thing corresponding to a place or area, which is denoted by a commonly recognised, or formally designated, name or description."^^xsd:string .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#MaintenanceResponsibility
+###  http://linked.data.gov.au/def/dataset#MaintenanceResponsibility
 :MaintenanceResponsibility rdf:type owl:Class ;
                            rdfs:subClassOf prov:Activity ,
                                            [ rdf:type owl:Restriction ;
@@ -1482,7 +1482,7 @@ dct:SubjectScheme rdf:type owl:Class .
                            rdfs:label "Dataset Maintenance Arrangement"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Organisation
+###  http://linked.data.gov.au/def/dataset#Organisation
 :Organisation rdf:type owl:Class ;
               rdfs:subClassOf dct:Agent ,
                               prov:Organization ;
@@ -1490,7 +1490,7 @@ dct:SubjectScheme rdf:type owl:Class .
               rdfs:label "Organisation"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Point
+###  http://linked.data.gov.au/def/dataset#Point
 :Point rdf:type owl:Class ;
        rdfs:subClassOf :Geometry ;
        rdfs:comment "A Point is a point in space using its geographic coordinates."@en ,
@@ -1499,21 +1499,21 @@ dct:SubjectScheme rdf:type owl:Class .
        rdfs:seeAlso <http://www.w3.org/2003/01/geo/wgs84_pos> .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Polygon
+###  http://linked.data.gov.au/def/dataset#Polygon
 :Polygon rdf:type owl:Class ;
          rdfs:subClassOf :Geometry ;
          rdfs:comment "This is a stub class which allows us to defer which external vocabulary to adopt. Adoption can be at run-time through a owl:equivalentClass axiom in the data - likely to be from WGS84_pos or OGC GeoSPARQL or both, or something else as proposed by the W3C SDWWG."^^xsd:string ;
          rdfs:label "Polygon"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Role
+###  http://linked.data.gov.au/def/dataset#Role
 :Role rdf:type owl:Class ;
       rdfs:subClassOf prov:Role ;
       rdfs:comment "A Role corresponds to the involvement of an Agent in an Event, e.g. fulfilling a publisher, contributor or custodian Role."@en ;
       rdfs:label "Role"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#SpatialThing
+###  http://linked.data.gov.au/def/dataset#SpatialThing
 :SpatialThing rdf:type owl:Class ;
               rdfs:subClassOf geo:SpatialObject ;
               rdfs:comment "A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset."@en ,
@@ -1521,14 +1521,14 @@ dct:SubjectScheme rdf:type owl:Class .
               rdfs:label "Spatial Thing"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#StateOrTerritory
+###  http://linked.data.gov.au/def/dataset#StateOrTerritory
 :StateOrTerritory rdf:type owl:Class ;
                   rdfs:subClassOf :LevelOfGovernment ;
                   rdfs:comment "States and Territories Government are the second tier of Government in the Commonwealth of Australia. The Commonwealth of Australia comprises of six states and various territories some of which enjoy a large degree of self-governance."@en ;
                   rdfs:label "State and Territories Government"@en .
 
 
-###  http://reference.data.gov.au/def/ont/dataset#Timelnterval
+###  http://linked.data.gov.au/def/dataset#Timelnterval
 :Timelnterval rdf:type owl:Class ;
               rdfs:subClassOf time:Interval ;
               rdfs:comment "A Time Interval describes a time period (interval) during which data was collected or observations were made that are described in the Dataset."@en ,
@@ -2109,14 +2109,14 @@ dct:type rdf:type owl:NamedIndividual .
 dct:valid rdf:type owl:NamedIndividual .
 
 
-###  http://reference.data.gov.au/def/datasetOntology
-<http://reference.data.gov.au/def/datasetOntology> rdf:type owl:NamedIndividual ;
+###  http://linked.data.gov.au/def/dataset
+<http://linked.data.gov.au/def/dataset> rdf:type owl:NamedIndividual ;
                                                    dct:creator <http://linked.data.gov.au/> ;
                                                    dct:publisher <http://linked.data.gov.au/> ;
                                                    dct:rights <http://creativecommons.org/licenses/by/4.0/> .
 
 
-###  http://reference.data.gov.au/def/datasetOntology#
+###  http://linked.data.gov.au/def/dataset#
 audata: rdf:type owl:NamedIndividual ;
         dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> .
 
